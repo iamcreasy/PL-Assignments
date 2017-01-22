@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<string.h>
 
 char* getMorseCode(char ch);
 
@@ -7,7 +8,7 @@ int main(){
     gets(input);
 
     int i;
-    for(i = 0; i<strlen(input); i++){
+    for(i = 0; i<(int)strlen(input); i++){
         printf("%s ", getMorseCode(input[i]));
     }
 
