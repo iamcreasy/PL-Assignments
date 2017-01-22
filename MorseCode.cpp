@@ -1,19 +1,48 @@
+// Student : Quazi Irfan
+// Course : CSC-461 Programming Languages (Assignment 1)
+// Instructor : Dr. Sung Shin
+// Due Date : Jan 23rd, 2017
+// File Name : MorseCode.cpp
+
+// Program description :
+// This program asks the user to input a string.
+// Then in a loop each characters from that array is fed into getMorseCode function.
+// The program then prints the corresponding Morse code returned by getMorseCode method.
+// The program terminates after reaching at end of input.
+
+// Sample I/O:
+// Enter string : ABCDE FGHIJ
+// Morse code : .- -... -.-. -.. .   ..-. --. .... .. .---
+
+// Input restriction :
+// Only capital letters, numbers and spaces are allowed.
+
 #include<iostream>
 
 using namespace std;
 
 string getMorseCode(char ch);
 
+// The entry point of the program.
 int main(){
+    // Ask for input string
     string input;
+    cout << "Enter string : ";
     getline(cin, input);
+
+    // feed characters into getMorseCode
+    cout << "Morse code : ";
     for(unsigned int i = 0; i<input.size(); i++){
         cout << getMorseCode(input.at(i)) + " ";
     }
 
+    // program termination
     return 1;
 }
 
+// getMorseCode take one character as an argument
+// Returns the corresponding Morse code.
+// If any invalid character is fed, it prints "Invalid character"
 string getMorseCode(char ch){
     switch(ch){
         case 'A':
@@ -166,7 +195,7 @@ string getMorseCode(char ch){
             break;
 
         default:
-            return "Invalid character.";
+            return "Invalid character";
             break;
     }
 }
