@@ -43,7 +43,7 @@ int main(){
 }
 
 // getMorseCode take one character as argument
-// Prints the corresponding Morse code followed by one space.
+// Returns the corresponding Morse code
 // If any invalid character is fed, it prints "Invalid character"
 char* getMorseCode(char ch){
     switch(ch){
