@@ -1,13 +1,34 @@
+! Student : Quazi Irfan
+! Course : CSC-461 Programming Languages (Assignment 1)
+! Instructor : Dr. Sung Shin
+! Due Date : Jan 23rd, 2017
+! File Name : MorseCode.f95
+!
+! Program description :
+! This program asks the user to input a string. The input is stored in a 250 index long character array.
+! Then in a loop each characters from that array is fed into getMorseCode function.
+! getMorseCode prints the corresponding Morse code on the terminal with a trailing space.
+! The program terminates after reaching at end of input.
+!
+! Sample I/O:
+! Enter string : ABCDE FGHIJ
+! Morse code : .- -... -.-. -.. .   ..-. --. .... .. .---
+!
+! Input restriction :
+! Only capital letters, numbers and spaces are allowed.
+! Input string length should be less than 250 characters.
+
 program main
   implicit none
-  character (len=100):: line
+
+  character (len=250):: line
   integer :: i, length
 
   ! Ask for input string
   write(*,'(A)', advance="no") "Enter String : "
   read(*,'(A)') line
 
-  ! Get the size of the string excluding the trailing empty spaces
+  ! Get the size of the string excluding the trailing empty spaces; equivalent to strlen in C
   length = len_trim(line)
 
   ! call getMorseCode for every character in the input string
@@ -19,7 +40,8 @@ program main
 stop
 end
 
-! print morse code for every character it gets as an argument
+! print the Morse code for every character it gets as an argument with a trailing space
+! If getMorseCode receives any invalid character it prints "Invalid character"
 subroutine getMorseCode(i)
     implicit none
     character :: i
@@ -108,7 +130,7 @@ subroutine getMorseCode(i)
         case(' ')
             write(*,'(A)', advance="no") " "
         case default
-            write(*,'(A)', advance="no") "Unknowns character"
+            write(*,'(A)', advance="no") "Invalid character"
     end select
 
 end subroutine getMorseCode
