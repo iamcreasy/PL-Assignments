@@ -1,16 +1,15 @@
 with Ada.Text_IO,Ada.Strings.Unbounded, Ada.Strings.Unbounded.Text_IO; 
 
 use Ada.Text_IO;
-procedure hello is
+procedure MorseCode is
 
 package IO renames Ada.Text_IO;
 package SU renames Ada.Strings.Unbounded;
 package SU_IO renames Ada.Strings.Unbounded.Text_IO;
 
 input : SU.Unbounded_String;
-i : integer;
 
-procedure func (c : character) is
+procedure getMorseCode (c : character) is
 begin
 		if( c = 'A') then
             IO.put(".- ");            
@@ -91,12 +90,14 @@ begin
         else
             IO.put("Invalid character ");
 		end if;
-end func;
+end getMorseCode;
 
 begin
+   IO.put("Enter input ");
    SU_IO.get_line(input);
 	
+   IO.put("Morse code ");
    for j in 1 .. SU.length(input) loop
-		func(SU.element(input, j));		
+		getMorseCode(SU.element(input, j));		
    end loop;
-end Hello;
+end MorseCode;
